@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package orders;
+
+// A line item within an order.
+message LineItem {
+  string sku = 1;
+  uint32 quantity = 2;
+}
+
+// Address can be nested (e.g. billing -> parent company -> ...), which is
+// what protobufjs decodes recursively.
+message Address {
+  string line1 = 1;
+  string city = 2;
+  string country = 3;
+  Address forward_to = 4; // optional nested address
+}
+
+message Order {
+  string order_id = 1;
+  string customer_id = 2;
+  repeated LineItem items = 3;
+  Address shipping = 4;
+}

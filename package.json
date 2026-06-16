@@ -1,0 +1,17 @@
+{
+  "name": "order-ingest-service",
+  "version": "1.0.0",
+  "description": "Order ingestion microservice: accepts protobuf-encoded orders and enriches them via an upstream pricing API",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "demo": "node scripts/demo.js"
+  },
+  "dependencies": {
+    "axios": "1.15.1",
+    "express": "^4.19.2",
+    "protobufjs": "7.5.5"
+  },
+  "license": "MIT"
+}
